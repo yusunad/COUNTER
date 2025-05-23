@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Acount</title>
+  </head>
+  <body>
+    <h1>Word Count</h1>
+    <textarea
+      id="textInput"
+      rows="10"
+      cols="50"
+      placeholder="Type or paste your text here..."
+    ></textarea>
+  </body>
+</html>
+    <button id="countButton">Count Words</button>
+    <p id="wordCount"></p>
+
+    <script>
+      document
+        .getElementById("countButton")
+        .addEventListener("click", function () {
+          const text = document.getElementById("textInput").value;
+          const wordCount = countWords(text);
+          document.getElementById("wordCount").innerText =
+            "Word Count: " + wordCount;
+        });
+
+      function countWords(text) {
+        if (!text.trim()) return 0; // Return 0 for empty input
+        return text.trim().split(/\s+/).length; // Split by whitespace
+      }
+    </script>
+  </body>

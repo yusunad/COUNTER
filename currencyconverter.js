@@ -4,6 +4,15 @@ const toCurrency = document.getElementById("to-currency");
 const convertCurrency = document.getElementById("currency-form");
 const convertedAmount = document.getElementById("converted-amount");
 
+/*
+const formatNumber = (num) => {
+  return new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(num);
+};
+
+*/
 convertCurrency.addEventListener("submit", function (event) {
   event.preventDefault();
   const from = fromCurrency.value;
