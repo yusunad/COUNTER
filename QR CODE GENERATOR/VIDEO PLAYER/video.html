@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="video.css" />
+  </head>
+  <body>
+<div class="container">
+
+<input type="file" id="fileInput" accept="video/*" />
+<video></video>
+<div class="controls">
+  <button id="playPauseBtn">Play</button>
+<div class="progress-bar">
+    <div class="progress">
+<div class="time">
+  <span class="currentDuration">00:00 /</span>
+  <span class="totalDuration">00:00</span>
+</div>
+    </div>
+</div>
+
+
+</div>
+  <!-- <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" />
+  <input type="range" id="seekSlider" min="0" max="100" step="0.1" value="0" />
+  <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+ -->
+
+
+
+    <script src="video.js" defer></script>
+  </body>
+</html>

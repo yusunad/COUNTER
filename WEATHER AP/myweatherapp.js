@@ -8,6 +8,7 @@ const humidity = document.querySelector(".humidity");
 const pressure = document.querySelector(".pressure");
 const temperature = document.querySelector(".temperature");
 const showWeather = document.querySelector(".tohide");
+const img = document.querySelector(".weatherIcon");
 
 async function getWeather(cityName) {
   try {
@@ -23,6 +24,10 @@ async function getWeather(cityName) {
     humidity.textContent = `Humidity: ${weatherData.main.humidity}%`;
     pressure.textContent = `Pressure: ${weatherData.main.pressure}hPa`;
     // fetchStatus.textContent = "Weather data fetched successfully!";
+    img.setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+    );
 
     fetchStatus.textContent = "";
   } catch (error) {
@@ -36,9 +41,29 @@ getWeather(searchInput.value);
 addEventListener("submit", function (event) {
   event.preventDefault();
   getWeather(searchInput.value);
-  showWeather.classList.remove("tohide");
+
+
+  //showWeather.classList.remove("tohide");
 });
 
+// Load saved city on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const savedCity = localStorage.getItem("cityName");
+  if (savedCity) {
+    searchInput.value = savedCity;
+    getWeather(savedCity);
+  }
+});
+
+// Handle form submit
+weatherForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const cityName = searchInput.value.trim();
+  if (cityName) {
+    localStorage.setItem("cityName", cityName);
+    getWeather(cityName);
+  }
+});
 /*
 "weather": [
     {

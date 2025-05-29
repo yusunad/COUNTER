@@ -76,3 +76,4 @@ resetbtn.addEventListener("click", function () {
   countInput.style.color = "black";
   input.value = "";
 });
+
